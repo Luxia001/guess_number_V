@@ -15,7 +15,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Flutter Demo',
       theme: ThemeData(
-        primarySwatch: Colors.deepPurple,
+        primarySwatch: Colors.pink ,
       ),
       home: HomePage(),
     );
@@ -28,68 +28,68 @@ class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text('GUESS THE NUMBER')),
-      body: Container(
-        decoration: BoxDecoration(
-            color: Colors.blueAccent.withOpacity(1.0),
-            border: Border.all(width: 15.0, color: Color(0xFFA6F9FB)),
-            boxShadow: [
-              BoxShadow(
-                color: Colors.black.withOpacity(1.0),
-                offset: const Offset(2.0, 5.0),
-                blurRadius: 5.0,
-                spreadRadius: 2.0,
-              )
-            ]),
-        //alignment: Alignment.center,
-        child: Center(
+      appBar: AppBar(
+        title: const Text('GUESS THE NUMBER'),
+      ),
+      body: Padding(
+        padding: const EdgeInsets.all(20.0),
+        child: Container(
+          decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(20.0),
+              color: Color(0xFF134398),
+              //color: Colors.lightBlue.shade100,
+              //border: Border.all(width: 5.0, color: Colors.blue),
+              boxShadow: [
+                BoxShadow(
+                    color: Colors.black.withOpacity(0.5),
+                    offset: const Offset(2.0, 5.0),
+                    blurRadius: 5.0,
+                    spreadRadius: 2.0)
+              ]),
           child: Column(
-            //mainAxisSize: MainAxisSize.min,
             mainAxisAlignment: MainAxisAlignment.center,
-            crossAxisAlignment: CrossAxisAlignment.center,
-
             children: [
-            Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: [Text(
-              'GUESS',
-              style: TextStyle(fontSize: 30.0, color: Color(0xFFFDFDFD)),
-              textAlign: TextAlign.center,
-            ),],
-            ),
-              Padding(
-                padding: const EdgeInsets.only(
-                  top:0,
-                  right:0,
-                  left: 0,
-                  bottom: 80,
-                ),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: [
-                    Image.asset('assets/images/guess_logo.png', width: 100.0),
-
-                    /*TextButton(onPressed: () {}, child: Text("THE NUMBER",),
-                    )*/
-                    Text(
-                      'THE NUMBER',
-                      style: TextStyle(fontSize: 15.0, color: Color(0xFFFDFDFD)),
-                      textAlign: TextAlign.center,
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: Image.asset(
+                      'assets/images/guess_logo.png',
+                      width: 100,
+                      height: 100,
+                      //fit: BoxFit.fill,
                     ),
-
-                  ],
-                ),
+                  ),
+                  Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: const [
+                      Text(
+                        'GUESS',
+                        style: TextStyle(
+                          color: Color(0xFFFDFDFD),
+                          fontSize: 50.0,
+                        ),
+                      ),
+                      Text(
+                        'THE NUMBER',
+                        style: TextStyle(
+                          color: Color(0xFFFDFDFD),
+                          fontSize: 25.0,
+                        ),
+                      ),
+                    ],
+                  ),
+                ],
               ),
-              ElevatedButton(
-
-                child:Text('GUESS',
-                  style: TextStyle(fontSize: 30.0, color: Color(0xFEEDD300)),
-                  textAlign: TextAlign.center,
-                ),
-                onPressed: () {},
+              const SizedBox(
+                height: 20.0,
               ),
+              const Padding(
+                padding:  EdgeInsets.all(20.0),
+                child:  TextField(),
+              ),
+              ElevatedButton(onPressed: (){}, child: const Text('GUESS'),style: ElevatedButton.styleFrom(primary: Color(0xFF30D6De)),),
             ],
           ),
         ),
